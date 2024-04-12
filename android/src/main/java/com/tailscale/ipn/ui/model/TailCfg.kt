@@ -112,6 +112,9 @@ class Tailcfg {
     val displayName: String
       get() = ComputedName ?: Name
 
+    val keyDoesNotExpire: Boolean
+      get() = KeyExpiry == "0001-01-01T00:00:00Z"
+
     fun isSelfNode(netmap: Netmap.NetworkMap): Boolean = StableID == netmap.SelfNode.StableID
 
     fun connectedOrSelfNode(nm: Netmap.NetworkMap?) =
